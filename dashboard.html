@@ -1,0 +1,377 @@
+<!-- This template was obtained from https://github.com/vikdiesel/admin-one-bulma-dashboard -->
+<!DOCTYPE html>
+<html lang="en" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CEGE0043 Dashboard</title>
+
+  <!-- Bulma is included -->
+  <link rel="stylesheet" href="css/main.min.css">
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="app">
+  <nav id="navbar-main" class="navbar is-fixed-top">
+    <div class="navbar-brand">
+      <a class="navbar-item is-hidden-desktop jb-aside-mobile-toggle">
+        <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+      </a>
+      <div class="navbar-item has-control">
+        <div class="control"><input placeholder="Search everywhere..." class="input"></div>
+      </div>
+    </div>
+    <div class="navbar-brand is-right">
+      <a class="navbar-item is-hidden-desktop jb-navbar-menu-toggle" data-target="navbar-menu">
+        <span class="icon"><i class="mdi mdi-dots-vertical"></i></span>
+      </a>
+    </div>
+    <div class="navbar-menu fadeIn animated faster" id="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown has-dropdown-with-icons has-divider is-hoverable">
+          <div class="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
+          <a class="navbar-link is-arrowless">
+            <div class="is-user-avatar">
+              <img src="css/images/user532.jpg" alt="user532">
+            </div>
+            <div class="is-user-name"><span>user532</span></div>
+            <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+          </a>
+          <div class="navbar-dropdown">
+            <a href="profile.html" class="navbar-item">
+              <span class="icon"><i class="mdi mdi-account"></i></span>
+              <span>My Profile</span>
+            </a>
+            <a class="navbar-item">
+              <span class="icon"><i class="mdi mdi-settings"></i></span>
+              <span>Settings</span>
+            </a>
+            <a class="navbar-item">
+              <span class="icon"><i class="mdi mdi-email"></i></span>
+              <span>Messages</span>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              <span class="icon"><i class="mdi mdi-logout"></i></span>
+              <span>Log Out</span>
+            </a>
+          </div>
+        </div>
+        <a href="https://justboil.me/bulma-admin-template/one-html" title="About" class="navbar-item has-divider is-desktop-icon-only">
+          <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
+          <span>About</span>
+        </a>
+        <a title="Log out" class="navbar-item is-desktop-icon-only">
+          <span class="icon"><i class="mdi mdi-logout"></i></span>
+          <span>Log out</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <aside class="aside is-placed-left is-expanded">
+    <div class="menu is-menu-main">
+      <p class="menu-label">Back to:</p>
+      <ul class="menu-list">
+        <li>
+          <a href="https://cege0043-2022-43.cs.ucl.ac.uk/bootStrap.html" class="is-active router-link-active has-icon">
+            <span class="icon"><i class="mdi mdi-map-marker-multiple mdi-5px"></i></span>
+            <span class="menu-item-label">Asset Creation</span>
+          </a>
+          <li>
+          <a href="https://cege0043-2022-43.cs.ucl.ac.uk/bootStrap.html" class="is-active router-link-active has-icon">
+            <span class="icon"><i class="mdi mdi-book-multiple mdi-5px"></i></span>
+            <span class="menu-item-label">Condition Assessment</span>
+          </a>
+        </li>
+      </ul>
+      </ul>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero is-hero-bar">
+    <div class="hero-body">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item"><h1 class="title">
+            Assets Dashboard
+          </h1></div>
+        </div>
+        <div class="level-right" style="display: none;">
+          <div class="level-item"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section is-main-section">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <div class="card tile is-child">
+          <div class="card-content">
+            <div class="level is-mobile">
+              <div class="level-item">
+                <div class="is-widget-label"><h3 class="subtitle is-spaced">
+                  Assets Recorded
+                </h3>
+                <h1 class="title">
+                  <div id= 'number_assets_created'></div>
+                </h1>
+                </div>
+              </div>
+              <div class="level-item has-widget-icon">
+                <div class="is-widget-icon"><span class="icon has-text-primary is-large"><i
+                    class="mdi mdi-map-marker-multiple mdi-48px" style="color:black"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <div class="card tile is-child">
+          <div class="card-content">
+            <div class="level is-mobile">
+              <div class="level-item">
+                <div class="is-widget-label"><h3 class="subtitle is-spaced">
+                  <div>Condition Reports <br>Submitted</div>
+                </h3>
+                  <h1 class="title">
+                    <div id= 'number_conditions_submitted'></div>
+                  </h1>
+                </div>
+              </div>
+              <div class="level-item has-widget-icon">
+                <div class="is-widget-icon"><span class="icon has-text-info is-large"><i
+                    class="mdi mdi-book-multiple mdi-48px" style="color:black"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <div class="card tile is-child">
+          <div class="card-content">
+            <div class="level is-mobile">
+              <div class="level-item">
+                <div class="is-widget-label"><h3 class="subtitle is-spaced">
+                  User Rank
+                </h3>
+                  <h1 class="title">
+                    <div id= 'urank'></div>
+                  </h1>
+                </div>
+              </div>
+              <div class="level-item has-widget-icon">
+                <div class="is-widget-icon"><span class="icon has-text-success is-large"><i
+                    class="mdi mdi-trophy mdi-48px" style="color:black"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-brightness-1"></i></span>
+          3D Cesium view
+          <div id = "cesiumContainerDesc"></div>
+        </p>
+        <a href="#" class="card-header-icon">
+          <span class="icon"><i class="mdi mdi-reload" onclick='loadVectorLayer()'></i></span>
+          <div id='cesiumPoint'></div>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="chart-area">
+          <div style="height: 100%;">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+            <div id="cesiumContainer" width="2992" height="1000" class="chartjs-render-monitor" style="display: block; height: 570; width: 1000;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-chart-bar"></i></span>
+          Asset Bar Graph
+          <!-- <div id = "cesiumContainer"></div> -->
+        </p>
+        <a href="#" class="card-header-icon">
+          <span class="icon"><i class="mdi mdi-reload" onclick='plotBarChart()'></i></span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="chart-area">
+          <div style="height: 100%;">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+             <canvas id="barGraphContainer" width="2992" height="1000" class="chartjs-render-monitor" style="display: block; height: 500px; width: 1197px;"></canvas> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-chart-pie"></i></span>
+          Assets Polar Area Chart
+          <!-- <div id = "cesiumContainer"></div> -->
+        </p>
+        <a href="#" class="card-header-icon">
+          <span class="icon"><i class="mdi mdi-reload" onclick='plotPolarChart()'></i></span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="chart-area">
+          <div style="height: 100%;">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+             <canvas id="polarAreaChart" width="2992" height="1000" class="chartjs-render-monitor" style="display: block; height: 500px; width: 1197px;"></canvas> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-chart-line"></i></span>
+          Mixed Line Chart for Daily Participation Rates
+          <!-- <div id = "cesiumContainer"></div> -->
+        </p>
+        <a href="#" class="card-header-icon">
+          <span class="icon"><i class="mdi mdi-reload" onclick='plotMixedLineChart()'></i></span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="chart-area">
+          <div style="height: 100%;">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+             <canvas id="mixedLineChart" width="2992" height="1000" class="chartjs-render-monitor" style="display: block; height: 500px; width: 1197px;"></canvas> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+    <div class="container-fluid">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            © 2020, JustBoil.me
+          </div>
+          <div class="level-item">
+            <a href="https://github.com/vikdiesel/admin-one-bulma-dashboard" style="height: 20px">
+              <img src="https://img.shields.io/github/v/release/vikdiesel/admin-one-bulma-dashboard?color=%23999">
+            </a>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <div class="logo">
+              <a href="https://justboil.me"><img src="img/justboil-logo.svg" alt="JustBoil.me"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script type="text/javascript" src="js/main.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script type="text/javascript" src="js/chart.sample.min.js"></script>
+<script src="Build/Cesium/Cesium.js"></script>
+<style>
+      @import url(Build/Cesium/Widgets/widgets.css);
+      #cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+           .toolbar-left {
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+  </style>
+
+<script src="js/cesiumfunc.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js" 
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script> 
+
+  <script>
+  Cesium.Ion.defaultAccessToken ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NmQ2NmVmNy0zZGY4LTQ1ZDAtYmUwOC03MjkzM2JjNzQ2OTQiLCJpZCI6MTU2NjMsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1Njg1MjQwNTl9.siDvMt3fH91XzE39FU_xqVrx-i6M1wWOBl_2vCrY6Xo';
+
+Cesium.Ion.defaultAccessToken ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NmQ2NmVmNy0zZGY4LTQ1ZDAtYmUwOC03MjkzM2JjNzQ2OTQiLCJpZCI6MTU2NjMsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1Njg1MjQwNTl9.siDvMt3fH91XzE39FU_xqVrx-i6M1wWOBl_2vCrY6Xo';
+
+var imageryProviders = Cesium.createDefaultImageryProviderViewModels();
+var selectedImageryProviderIndex = 7;  // MapBox Street is 5th in the list.
+
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProviderViewModels: imageryProviders,
+    selectedImageryProviderViewModel: imageryProviders[selectedImageryProviderIndex]});
+
+var asset_name_clicked_on_bar;
+// only load the layer when the cesium basemap has been created
+document.addEventListener('DOMContentLoaded', function() {
+    getNumAssets()
+    conditionReportsSubmitted()
+    userRanking4Dash()
+    loadVectorLayer()
+    getUsersAssetsAndCondition()
+    getDailyParticipationRatesData()
+    plotBarChart()
+    plotPolarChart()
+    plotMixedLineChart()
+  }, false);
+
+
+
+ </script>
+</html>

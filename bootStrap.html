@@ -1,0 +1,196 @@
+<DOCTYPE html>
+  <html lang="en">
+  <head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- custom fonts and styles for the bootstrap template -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" type="text/css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  crossorigin="anonymous">
+
+   <link href="css/sb-admin-2.css" type="text/css" rel="stylesheet">
+      <!--   scripts and style for leaflet-->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+     integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+     crossorigin=""/>
+
+
+    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+     integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+     crossorigin=""></script>
+
+    
+
+    <title>Asset Creation and Condition Assessment</title>
+    <!-- adapted from: https://blackrockdigital.github.io/startbootstrap-sb-admin-2/ -->
+      </head>
+
+  <body id="page-top">
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" >
+          <div class="sidebar-brand-text mx-3">Alyeko</div>
+          <div class="sidebar-brand-text mx-3">ucesoan</div> 
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- for large screen----------------->
+        <li class="nav-item d-none d-lg-block" > 
+           <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseSeven" onclick="showTable()" aria-expanded="true" aria-controls="collapseSeven">
+            <i class="fa fa-light fa-table"></i>
+            <span>List of Assets in Best Condition</span>
+          </a>
+          <div id="collapseSeven" class="collapse navbar-collapse" aria-labelledby="headingSeven" data-parent="#accordionSidebar">
+           </div>
+         </li>
+
+         <li class="nav-item d-none d-lg-block" > 
+           <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseSeven" onclick="showGraph()" aria-expanded="true" aria-controls="collapseSeven">
+            <i class="fa fa-fw fa-chart-line"></i> 
+            <span>Daily Reporting Rates Graph – All Users</span>
+          </a>
+          <div id="collapseSeven" class="collapse navbar-collapse" aria-labelledby="headingSeven" data-parent="#accordionSidebar">
+           </div>
+         </li>
+
+        <!-- For small screens --------------->
+        <!-- Nav Item - Pages Collapse Menu -->
+        <hr class="sidebar-divider">
+         <li class="nav-item d-lg-none"> 
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseSeven" onclick="window.location.href = 'help.html';" aria-expanded="true" aria-controls="collapseSeven">
+            <i class="fa fa-light fa-exclamation"></i> 
+            <span>Help</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "userRanking()" aria-expanded="true" aria-controls="collapseNine">
+            <i class="fa fa-fw fa-award"></i>
+            <span>User Ranking</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "addLayer5ClosestAssets()" aria-expanded="true" aria-controls="collapseNine"> 
+            <i class="fa fa-light fa-plus"></i>
+            <span>Add Layer – 5 closest assets</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "removeLayer5ClosestAssets()" aria-expanded="true" aria-controls="collapseNine">
+            <i class="fa fa-light fa-minus"></i>
+            <span>Remove Layer – 5 closest assets</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "addLayerLast5ReportsColourCoded()" aria-expanded="true" aria-controls="collapseNine">
+            <i class="fa fa-light fa-plus"></i>
+            <span>Add Layer – last 5 reports, colour coded</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "removeLayerLast5Reports()" aria-expanded="true" aria-controls="collapseNine">
+            <i class="fa fa-light fa-minus"></i>
+            <span>Remove layer – last 5 reports</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "addLayerNotRatedLast3Days()" aria-expanded="true" aria-controls="collapseNine">
+            <i class="fa fa-light fa-plus"></i>
+            <span>Add Layer – not rated in the last 3 days</span>
+          </a>
+          </li>
+
+        <li class="nav-item d-lg-none">
+          <a class="nav-link collapsed" href = "#" data-toggle="collapse" data-target="#collapseNine" onclick = "removeLayerNotRatedLast3Days()" aria-expanded="true" aria-controls="collapseNine">
+            <i class="fa fa-light fa-minus"></i>
+            <span>Remove Layer – not rated in the last 3 days</span>
+          </a>
+          </li>
+
+
+
+      </ul>
+       <!-- End of Sidebar -->
+
+       <div id="content-wrapper" class="d-flex flex-column">
+        <div id="mapContainer" class = "h-100 w-100" style="z-index:0;"></div> <!--holds the map-->
+      </div>
+        <!-- scrollbars adapted from https://stackoverflow.com/questions/8344688/how-to-get-scrollbars-in-svg -->
+        <div id="graphWrapper" class="h-75 w-75 d-none d-lg-block" style="background-color: white; display: inlineblock;position:absolute; top:-9999;left:15%;overflow-x:scroll; overflow-y:scroll"><button type="button" class="close" aria-label="Close" onclick="closePlot();">X</button>
+        </div>
+
+         <div id="tableWrapper" class="h-75 w-75 d-none d-lg-block" style="background-color: white; display: inlineblock;position:absolute; top:-9999;right:15%;overflow-x:hidden; overflow-y:scroll"><button type="button" class="close" aria-label="Close" onclick="closeTable();">X</button>
+        </div>
+        
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+  </body>
+  <!-- <script src="js/menu.js"></script> -->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js" 
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>  
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+  <script src="js/leaflet.awesome-markers.js"></script>
+
+
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script> 
+  <script src="js/sb-admin-2.js"></script>
+  <script src="js/basicMap.js"></script>
+  <script src="js/dailyReportingRates.js"></script>
+  <script src="js/userRanking.js"></script>
+  <script src="js/uploadData.js"></script>
+  <script src="js/assetsInBestCondition.js"></script>
+  <script src="js/menuItemsForSmallScreen.js"></script>
+  <script src="js/proximityAlert.js"></script>
+
+
+
+<script>
+function loadMap() {
+  var user_id;
+  function getUserId(){
+    var baseComputerAddress = document.location.origin;
+    var dataAddress= "/api/getUserId";
+    var URL = baseComputerAddress + dataAddress;
+    $.ajax({url: URL, async: false, crossDomain: true,success: function(result){
+      user_id = result.user_id;
+      
+  }})
+  }
+ 
+  loadLeafletMap();
+  getUserId();
+  window.addEventListener('resize', setMapClickEvent);
+  setMapClickEvent();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadMap();
+}, false);
+
+</script>
+
+  </html>
